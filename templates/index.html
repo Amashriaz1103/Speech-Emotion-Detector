@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Emotion Recognition</title>
+    <!-- Use Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discover the Emotion</h1>
+            <p>Upload a voice recording and let AI uncover the hidden feelings.</p>
+        </header>
+        
+        <main class="card">
+            <div class="upload-section">
+                <input type="file" id="audioUpload" accept="audio/*" hidden />
+                <label for="audioUpload" class="upload-btn">
+                    <span class="icon">📁</span> Choose Audio File
+                </label>
+            </div>
+            
+            <div id="fileInfo" class="file-info hidden">
+                <p id="fileName"></p>
+                <audio id="audioPreview" controls hidden></audio>
+            </div>
+            
+            <button id="predictBtn" class="predict-btn disabled" disabled>Analyze Emotion</button>
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing soundwaves...</p>
+            </div>
+            
+            <div id="result" class="result hidden">
+                <h3>Detected Emotion:</h3>
+                <div id="emotionBadge" class="emotion-badge"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Capstone Project</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
